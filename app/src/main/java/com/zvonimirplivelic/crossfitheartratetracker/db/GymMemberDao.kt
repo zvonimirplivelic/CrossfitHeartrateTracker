@@ -22,5 +22,5 @@ interface GymMemberDao {
     suspend fun getGymMember(memberId: Long): GymMember?
 
     @Query("SELECT * FROM gym_member_table ORDER BY uid DESC")
-    fun getAll(): LiveData<List<GymMember>>
+    fun getAllMembers(): LiveData<List<GymMember>>
 }
