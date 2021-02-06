@@ -2,23 +2,25 @@ package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.zvonimirplivelic.crossfitheartratetracker.db.GymMemberDao
-import com.zvonimirplivelic.crossfitheartratetracker.model.GymMember
+import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class AddMemberViewModel (
-val database: GymMemberDao,
-application: Application
+class AddMemberViewModel(
+    val database: GymMemberDao,
+    application: Application
 ) : AndroidViewModel(application) {
 
-    fun onAddMember() {
-        viewModelScope.launch {
-            val newMember = GymMember(0, "prvi", "član", 180, 80.0, 22)
-            insertMember(newMember)
-        }
+    init {
+        onAddMember()
+    }
+
+    fun onAddMember() = viewModelScope.launch {
+        val newMember = GymMember(0, "prvi", "član", 180, 80.0, 22)
+        Timber.log(2, "Dodavanje ${newMember}")
+        insertMember(newMember)
     }
 
     private suspend fun insertMember(newMember: GymMember) {

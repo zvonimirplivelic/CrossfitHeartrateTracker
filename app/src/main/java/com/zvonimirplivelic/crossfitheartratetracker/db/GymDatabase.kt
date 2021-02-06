@@ -4,9 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.zvonimirplivelic.crossfitheartratetracker.model.GymMember
+import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.Excercise
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.MembershipFee
 
-@Database(entities = arrayOf(GymMember::class), version = 1, exportSchema = false)
+@Database(
+    entities = [
+        GymMember::class,
+        Excercise::class,
+        MembershipFee::class
+    ],
+    version = 1,
+    exportSchema = false
+)
 abstract class GymDatabase : RoomDatabase() {
 
     abstract val gymMemberDao: GymMemberDao

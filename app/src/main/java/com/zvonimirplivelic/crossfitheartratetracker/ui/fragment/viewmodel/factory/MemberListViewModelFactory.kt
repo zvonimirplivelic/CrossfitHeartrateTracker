@@ -3,7 +3,7 @@ package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.fact
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.zvonimirplivelic.crossfitheartratetracker.db.GymMemberDao
+import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
 import com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.MemberListViewModel
 import java.lang.IllegalArgumentException
 

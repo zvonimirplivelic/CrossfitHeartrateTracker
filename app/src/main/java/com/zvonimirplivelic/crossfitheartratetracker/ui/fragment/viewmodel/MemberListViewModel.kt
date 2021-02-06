@@ -4,11 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
-import com.zvonimirplivelic.crossfitheartratetracker.db.GymDatabase
-import com.zvonimirplivelic.crossfitheartratetracker.db.GymMemberDao
-import com.zvonimirplivelic.crossfitheartratetracker.model.GymMember
+import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
 import kotlinx.coroutines.launch
 
 class MemberListViewModel(
@@ -17,6 +15,7 @@ class MemberListViewModel(
 ) : AndroidViewModel(application) {
 
     private var memberList = MutableLiveData<List<GymMember?>>()
+    val members = database.getAllMembers()
 
     init {
         initializeList()
