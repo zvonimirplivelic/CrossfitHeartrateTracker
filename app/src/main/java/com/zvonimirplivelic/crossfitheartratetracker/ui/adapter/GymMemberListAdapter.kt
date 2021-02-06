@@ -1,4 +1,4 @@
-package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.adapter
+package com.zvonimirplivelic.crossfitheartratetracker.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

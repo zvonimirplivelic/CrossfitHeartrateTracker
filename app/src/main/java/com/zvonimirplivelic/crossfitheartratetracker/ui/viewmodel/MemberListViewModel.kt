@@ -1,4 +1,4 @@
-package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel
+package com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

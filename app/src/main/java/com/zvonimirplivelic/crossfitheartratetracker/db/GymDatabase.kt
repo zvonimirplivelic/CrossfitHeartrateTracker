@@ -4,20 +4,27 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
-import com.zvonimirplivelic.crossfitheartratetracker.db.entites.Excercise
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.Exercise
 import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
 import com.zvonimirplivelic.crossfitheartratetracker.db.entites.MembershipFee
+import com.zvonimirplivelic.crossfitheartratetracker.db.relations.MemberExerciseCrossRef
+import com.zvonimirplivelic.crossfitheartratetracker.db.relations.MemberFeeCrossRef
+import com.zvonimirplivelic.crossfitheartratetracker.util.Converters
 
 @Database(
     entities = [
         GymMember::class,
-        Excercise::class,
-        MembershipFee::class
+        Exercise::class,
+        MembershipFee::class,
+        MemberFeeCrossRef::class,
+        MemberExerciseCrossRef::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
+@TypeConverters(Converters::class)
 abstract class GymDatabase : RoomDatabase() {
 
     abstract val gymMemberDao: GymMemberDao

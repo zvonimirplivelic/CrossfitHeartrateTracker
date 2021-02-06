@@ -5,7 +5,7 @@
     <data>
         <variable
             name="memberListViewModel"
-            type="com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.MemberListViewModel" />
+            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.MemberListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

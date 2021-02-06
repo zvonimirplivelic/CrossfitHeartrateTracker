@@ -6,7 +6,7 @@
     <data>
         <variable
             name="addMemberViewModel"
-            type="com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.AddMemberViewModel" />
+            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.AddMemberViewModel" />
 
     </data>
 
@@ -59,16 +59,16 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_surname" />
 
-        <DatePicker
-            android:id="@+id/dp_birthdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner"
-            app:layout_constraintBottom_toTopOf="@id/btn_add_member"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_weight" />
+<!--        <DatePicker-->
+<!--            android:id="@+id/dp_birthdate"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:calendarViewShown="false"-->
+<!--            android:datePickerMode="spinner"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/btn_add_member"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_weight" />-->
 
         <Button
             android:id="@+id/btn_add_member"

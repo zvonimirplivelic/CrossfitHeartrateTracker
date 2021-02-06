@@ -23,7 +23,7 @@ interface GymMemberDao {
     suspend fun insertPaidFee(membershipFee: MembershipFee)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMemberExcerciseCrossRef(crossRef: MemberExerciseCrossRef)
+    suspend fun insertMemberExerciseCrossRef(crossRef: MemberExerciseCrossRef)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMemberFeeCrossRef(crossRef: MemberFeeCrossRef)
@@ -36,7 +36,7 @@ interface GymMemberDao {
 
     @Transaction
     @Query("SELECT * FROM gym_member_table WHERE uid = :memberId")
-    suspend fun getMemberExcerciseList(memberId: Long): List<MemberWithExercise>
+    suspend fun getMemberExerciseList(memberId: Long): List<MemberWithExercise>
 
     @Transaction
     @Query("SELECT * FROM gym_member_table WHERE uid = :memberId")

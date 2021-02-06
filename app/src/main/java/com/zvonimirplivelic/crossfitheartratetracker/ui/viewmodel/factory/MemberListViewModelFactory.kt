@@ -1,20 +1,19 @@
-package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.factory
+package com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.factory
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.zvonimirplivelic.crossfitheartratetracker.db.dao.GymMemberDao
-import com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.AddMemberViewModel
+import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.MemberListViewModel
 import java.lang.IllegalArgumentException
 
-
-class AddMemberViewModelFactory(
+class MemberListViewModelFactory(
     private val dataSource: GymMemberDao,
     private val application: Application
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(AddMemberViewModel::class.java)) {
-            return AddMemberViewModel(dataSource, application) as T
+        if(modelClass.isAssignableFrom(MemberListViewModel::class.java)) {
+            return MemberListViewModel(dataSource, application) as T
         }
         throw IllegalArgumentException("Unknown VM Class")
     }

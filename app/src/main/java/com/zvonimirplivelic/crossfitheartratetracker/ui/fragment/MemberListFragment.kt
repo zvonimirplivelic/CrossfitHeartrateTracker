@@ -13,9 +13,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.zvonimirplivelic.crossfitheartratetracker.R
 import com.zvonimirplivelic.crossfitheartratetracker.databinding.FragmentMemberListBinding
 import com.zvonimirplivelic.crossfitheartratetracker.db.GymDatabase
-import com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.adapter.GymMemberListAdapter
-import com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.MemberListViewModel
-import com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel.factory.MemberListViewModelFactory
+import com.zvonimirplivelic.crossfitheartratetracker.ui.adapter.GymMemberListAdapter
+import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.MemberListViewModel
+import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.factory.MemberListViewModelFactory
 
 class MemberListFragment : Fragment() {
 
@@ -40,7 +40,7 @@ class MemberListFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.memberListViewModel = gymMemberViewModel
 
-        gymMemberViewModel.members.observe(viewLifecycleOwner, Observer {
+        gymMemberViewModel.members.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.data = it
             }

@@ -1,4 +1,4 @@
-package com.zvonimirplivelic.crossfitheartratetracker.ui.fragment.viewmodel
+package com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -18,7 +18,7 @@ class AddMemberViewModel(
     }
 
     fun onAddMember() = viewModelScope.launch {
-        val newMember = GymMember(0, "prvi", "član", 180, 80.0, 22)
+        val newMember = GymMember(0, "prvi", "član")
         Timber.log(2, "Dodavanje ${newMember}")
         insertMember(newMember)
     }
