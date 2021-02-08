@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_add_member">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/actionAddMemberToMemberList"
             app:destination="@id/MemberListFragment" />
     </fragment>
 </navigation>
