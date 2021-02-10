@@ -12,10 +12,12 @@ import androidx.navigation.fragment.findNavController
 import com.zvonimirplivelic.crossfitheartratetracker.R
 import com.zvonimirplivelic.crossfitheartratetracker.databinding.FragmentAddMemberBinding
 import com.zvonimirplivelic.crossfitheartratetracker.db.GymDatabase
-import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.AddMemberViewModel
-import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.factory.AddMemberViewModelFactory
+import com.zvonimirplivelic.crossfitheartratetracker.ui.MainActivity
+import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.GymTrackerViewModel
 
 class AddMemberFragment : Fragment() {
+
+    lateinit var viewModel: GymTrackerViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,15 +26,10 @@ class AddMemberFragment : Fragment() {
         val binding: FragmentAddMemberBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_add_member, container, false
         )
-
-        val application = requireNotNull(this.activity).application
-        val dataSource = GymDatabase.getInstance(application).gymMemberDao
-        val viewModelFactory = AddMemberViewModelFactory(dataSource, application)
-        val addMemberViewModel = ViewModelProvider(this, viewModelFactory)
-            .get(AddMemberViewModel::class.java)
+        viewModel = ((activity) as MainActivity).viewModel
 
         binding.lifecycleOwner = this
-        binding.addMemberViewModel = addMemberViewModel
+        binding.gymTrackerViewModel = viewModel
 
         return binding.root
     }

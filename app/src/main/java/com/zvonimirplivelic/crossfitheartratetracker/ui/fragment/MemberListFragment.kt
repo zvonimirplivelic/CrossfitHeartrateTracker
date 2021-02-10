@@ -6,18 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.zvonimirplivelic.crossfitheartratetracker.R
 import com.zvonimirplivelic.crossfitheartratetracker.databinding.FragmentMemberListBinding
-import com.zvonimirplivelic.crossfitheartratetracker.db.GymDatabase
+import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
 import com.zvonimirplivelic.crossfitheartratetracker.ui.adapter.GymMemberListAdapter
-import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.MemberListViewModel
-import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.factory.MemberListViewModelFactory
+import com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.GymTrackerViewModel
 
 class MemberListFragment : Fragment() {
+
+    lateinit var viewModel: GymTrackerViewModel
+    lateinit var adapter: GymMemberListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,24 +27,13 @@ class MemberListFragment : Fragment() {
         val binding: FragmentMemberListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_member_list, container, false
         )
-        val application = requireNotNull(this.activity).application
-        val dataSource = GymDatabase.getInstance(application).gymMemberDao
-        val viewModelFactory = MemberListViewModelFactory(dataSource, application)
-        val gymMemberViewModel = ViewModelProvider(this, viewModelFactory)
-            .get(MemberListViewModel::class.java)
 
 
-        val adapter = GymMemberListAdapter()
-        binding.rvMemberList.adapter = adapter
 
+        adapter = GymMemberListAdapter(viewModel.data.getAllMembers())
         binding.lifecycleOwner = this
-        binding.memberListViewModel = gymMemberViewModel
-
-        gymMemberViewModel.members.observe(viewLifecycleOwner, {
-            it?.let {
-                adapter.data = it
-            }
-        })
+        binding.rvMemberList.adapter = adapter
+        binding.gymTrackerViewModel = viewModel
 
         return binding.root
     }
@@ -56,4 +45,5 @@ class MemberListFragment : Fragment() {
             findNavController().navigate(R.id.actionMemberListToAddMember)
         }
     }
+
 }

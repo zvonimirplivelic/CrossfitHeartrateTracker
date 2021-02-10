@@ -10,13 +10,9 @@ import com.zvonimirplivelic.crossfitheartratetracker.databinding.MemberItemListB
 import com.zvonimirplivelic.crossfitheartratetracker.db.entites.GymMember
 import com.zvonimirplivelic.crossfitheartratetracker.util.GymMemberClickListener
 
-class GymMemberListAdapter : RecyclerView.Adapter<GymMemberListAdapter.GymMemberViewHolder>(),
+class GymMemberListAdapter(var memberList: List<GymMember>) : RecyclerView.Adapter<GymMemberListAdapter.GymMemberViewHolder>(),
     GymMemberClickListener {
-    var data = listOf<GymMember>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GymMemberViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,14 +25,17 @@ class GymMemberListAdapter : RecyclerView.Adapter<GymMemberListAdapter.GymMember
         return GymMemberViewHolder(view)
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount() = memberList.size
 
     override fun onBindViewHolder(holder: GymMemberViewHolder, position: Int) {
-        holder.view.gymMember = data[position]
+        holder.view.gymMember = memberList[position]
         holder.view.listener = this
     }
 
-    class GymMemberViewHolder(var view: MemberItemListBinding) : RecyclerView.ViewHolder(view.root)
 
-    override fun onMemberClicked(v: View) {}
+    override fun onMemberClicked(v: View) {
+
+    }
+
+    class GymMemberViewHolder(var view: MemberItemListBinding) : RecyclerView.ViewHolder(view.root)
 }

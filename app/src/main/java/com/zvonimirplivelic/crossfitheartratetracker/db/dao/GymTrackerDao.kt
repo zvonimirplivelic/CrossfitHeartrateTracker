@@ -11,7 +11,7 @@ import com.zvonimirplivelic.crossfitheartratetracker.db.relations.MemberWithExer
 import com.zvonimirplivelic.crossfitheartratetracker.db.relations.MemberWithFee
 
 @Dao
-interface GymMemberDao {
+interface GymTrackerDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMember(gymMember: GymMember)

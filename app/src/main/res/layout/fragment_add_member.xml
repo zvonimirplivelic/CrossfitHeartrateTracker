@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="addMemberViewModel"
-            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.AddMemberViewModel" />
+            name="gymTrackerViewModel"
+            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.GymTrackerViewModel" />
 
     </data>
 
@@ -37,27 +37,27 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_name" />
 
-        <EditText
-            android:id="@+id/et_height"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/et_height"
-            android:layout_margin="16dp"
-            android:inputType="number"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/et_weight"
-            app:layout_constraintTop_toBottomOf="@id/et_surname" />
+<!--        <EditText-->
+<!--            android:id="@+id/et_height"-->
+<!--            android:layout_width="128dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/et_height"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:inputType="number"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/et_weight"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_surname" />-->
 
-        <EditText
-            android:id="@+id/et_weight"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/et_weight"
-            android:layout_margin="16dp"
-            android:inputType="numberDecimal"
-            app:layout_constraintLeft_toRightOf="@id/et_height"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_surname" />
+<!--        <EditText-->
+<!--            android:id="@+id/et_weight"-->
+<!--            android:layout_width="128dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/et_weight"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:inputType="numberDecimal"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/et_height"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_surname" />-->
 
 <!--        <DatePicker-->
 <!--            android:id="@+id/dp_birthdate"-->
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/add_member"
-            android:onClick="@{() -> addMemberViewModel.onAddMember()}"
+            android:onClick="@{() -> gymTrackerViewModel.onAddMember()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="memberListViewModel"
-            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.MemberListViewModel" />
+            name="gymTrackerViewModel"
+            type="com.zvonimirplivelic.crossfitheartratetracker.ui.viewmodel.GymTrackerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
